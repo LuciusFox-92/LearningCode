@@ -1,0 +1,1 @@
+//Todo: create 3 promises, then use the Promise.all to wait for all of them to complete.
