@@ -23,3 +23,11 @@ checkInventory(order)
 	.catch((errorMessage) => {
 		console.log(errorMessage);
 	});
+
+
+	//Common errors when chaining promises are:
+	//1. Promise is not returned from a function
+	//2. Promise is settled before it is returned from a function
+
+	//Solution:
+	//Make sure to return the promise from the function that is being chained to the next function.
