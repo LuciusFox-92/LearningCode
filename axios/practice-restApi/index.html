@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Axios put example</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script>
+    //include axios
+    var axios = require('axios');
+  </script>
+</head>
+<body>
+  <!--Create a div with a button and text field-->
+  <div>
+    <input type="text" id="qr_id" placeholder="Enter qr id">
+    <button onclick="putData()">Put Data</button>
+
+  </div>
+  <div id="result">
+    <p id="resultText"></p>
+  </div>
+
+<!--Add some javascript to use the axios module-->
+<script>
+  async function putData() {
+    let qr_id = document.getElementById("qr_id").value;
+
+    // payload as a json object
+    let payload = {
+      "qrcode_generatedCode": qr_id
+    };
+
+    try {
+      // send a post request to the server
+      let response = await axios.post('http://localhost:3308/api/qrcode/', payload);
+      // print the response
+      document.getElementById("resultText").innerHTML = response.data;
+    } catch (error) {
+      //show an alert
+      alert(error);
+    }
+  }
+
+</script>
+</body>
+</html>
